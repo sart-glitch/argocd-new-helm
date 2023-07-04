@@ -2,14 +2,14 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: myapp-argo-application
-  namespace: argocd
+  namespace: myargo
 spec:
   project: default
 
   source:
-    repoURL: https://gitlab.com/nanuchi/argocd-app-config.git
+    repoURL: https://github.com/sart-glitch/argocd-new-helm.git
     targetRevision: HEAD
-    path: dev
+    path: charts/app1/dev
   destination: 
     server: https://kubernetes.default.svc
     namespace: myapp
