@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: sarthak8564/red123
+  repository: sarthak8564/qwer
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
