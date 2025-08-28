@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apex-transaction-scheduler  
+  namespace: uat-argocd                  
+spec:
+  project: default                    
+  source:
+    repoURL: 'https://git-codecommit.ap-south-1.amazonaws.com/v1/repos/apex-transaction-scheduler'
+    targetRevision: uat-new              
+    path: apex-transaction-scheduler           
+    helm:                            
+      valueFiles:
+        - values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: uat-app                          
+  syncPolicy: null
+  ignoreDifferences:                     
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
